@@ -27,12 +27,13 @@ const FormSection: React.FC = () => {
   };
 
   return (
-    <section id="valuation-form" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section id="valuation-form" className="py-20 bg-gray-50 relative">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 max-w-7xl mx-auto">
           
-          {/* Left Column: Context & Benefits */}
-          <div className="lg:w-1/2">
+          {/* Left Column: Context & Benefits - Added Background Photo styling */}
+          <div className="lg:w-1/2 relative">
+             <div className="absolute inset-0 bg-white/50 backdrop-blur-sm rounded-3xl -z-10 lg:hidden"></div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-6">
               Solicita tu <span className="text-red-600">Valoración Gratuita</span>
             </h2>
@@ -58,9 +59,11 @@ const FormSection: React.FC = () => {
             </div>
 
             {/* Contact Info Card */}
-            <div className="bg-red-700 text-white p-8 rounded-2xl shadow-lg">
-              <h3 className="text-2xl font-bold mb-6">Información de Contacto</h3>
-              <div className="space-y-4">
+            <div className="bg-gradient-to-br from-red-700 to-red-600 text-white p-8 rounded-2xl shadow-xl overflow-hidden relative">
+               {/* Pattern overlay */}
+               <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl transform translate-x-10 -translate-y-10"></div>
+              <h3 className="text-2xl font-bold mb-6 relative z-10">Información de Contacto</h3>
+              <div className="space-y-4 relative z-10">
                 <div className="flex items-center">
                   <Phone className="w-6 h-6 mr-4 opacity-90" />
                   <span className="text-lg">965 123 456</span>
@@ -79,7 +82,8 @@ const FormSection: React.FC = () => {
 
           {/* Right Column: The Form */}
           <div className="lg:w-1/2">
-            <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-10 border border-gray-100">
+            <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-10 border border-gray-100 relative overflow-hidden">
+               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-500 to-red-700"></div>
               
               {submitted ? (
                 <div className="text-center py-20">
@@ -103,7 +107,7 @@ const FormSection: React.FC = () => {
                       name="name"
                       required
                       placeholder="Tu nombre"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all bg-gray-50 focus:bg-white"
                       onChange={handleChange}
                     />
                   </div>
@@ -115,7 +119,7 @@ const FormSection: React.FC = () => {
                       name="email"
                       required
                       placeholder="tu@email.com"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all bg-gray-50 focus:bg-white"
                       onChange={handleChange}
                     />
                   </div>
@@ -127,7 +131,7 @@ const FormSection: React.FC = () => {
                       name="phone"
                       required
                       placeholder="600 000 000"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all bg-gray-50 focus:bg-white"
                       onChange={handleChange}
                     />
                   </div>
@@ -139,7 +143,7 @@ const FormSection: React.FC = () => {
                       name="address"
                       required
                       placeholder="Calle, número, zona..."
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all bg-gray-50 focus:bg-white"
                       onChange={handleChange}
                     />
                   </div>
@@ -150,7 +154,7 @@ const FormSection: React.FC = () => {
                       name="message"
                       rows={3}
                       placeholder="Cuéntanos más sobre tu propiedad (reformas, extras, etc)..."
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all resize-none bg-gray-50 focus:bg-white"
                       onChange={handleChange}
                     />
                   </div>
